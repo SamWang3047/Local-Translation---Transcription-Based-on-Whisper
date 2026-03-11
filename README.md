@@ -27,7 +27,6 @@ This repository is now documented for new users who do not already have your per
 
 Choose one of these setups:
 
-- Python `3.10` recommended
 - Conda recommended for easiest local setup
 - Docker supported for users who do not want to install Python dependencies manually
 
@@ -198,27 +197,3 @@ If you publish this to GitHub, a new visitor should be able to do at least one o
 - create a Conda environment from `environment.yml`
 - create a Python virtual environment and install `requirements.txt`
 - run it in Docker with `docker compose up --build`
-
-That is why the repository now avoids relying on your personal path like:
-
-```text
-C:\Users\Zhiyuan Wang\miniconda3\envs\whisper\python.exe
-```
-
-## Recommended Next Improvements
-
-- Add screenshots or a short demo GIF to the README
-- Add model selection in the UI
-- Add SRT/VTT export
-- Add cancel-job support
-- Add API tests for upload and history flows
-
-## Chinese Summary
-
-这个仓库现在已经从“依赖你本机现成环境”改成了“别人下载后也能按文档运行”的形式，重点补了：
-
-- 通用依赖文件 `requirements.txt`
-- Conda 环境文件 `environment.yml`
-- Docker 启动支持
-- 一键启动脚本 `run_web.ps1` 和 `run_web.bat`
-- 面向陌生用户重写的 README
