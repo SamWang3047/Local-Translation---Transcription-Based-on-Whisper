@@ -68,13 +68,13 @@ python -m uvicorn app:app --host 127.0.0.1 --port 8010 --reload
 PowerShell:
 
 ```powershell
-.\run_web.ps1
+.\scripts\run_web.ps1
 ```
 
 Batch:
 
 ```bat
-run_web.bat
+scripts\run_web.bat
 ```
 
 Default port is `8010`.
@@ -120,15 +120,19 @@ Recommended presets:
 |-- environment.yml
 |-- Dockerfile
 |-- docker-compose.yml
-|-- run_web.ps1
-|-- run_web.bat
-`-- whisper_web/
-    |-- main.py
-    `-- static/
-        |-- index.html
-        |-- history.html
-        |-- app.js
-        `-- styles.css
+|-- examples/
+|-- notebooks/
+|-- scripts/
+|   |-- run_web.ps1
+|   `-- run_web.bat
+`-- src/
+    `-- whisper_studio/
+        |-- main.py
+        `-- static/
+            |-- index.html
+            |-- history.html
+            |-- app.js
+            `-- styles.css
 ```
 
 ## How It Works

@@ -17,8 +17,9 @@ from faster_whisper import WhisperModel
 from pydantic import BaseModel, Field
 
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-STATIC_DIR = BASE_DIR / "whisper_web" / "static"
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+PACKAGE_DIR = Path(__file__).resolve().parent
+STATIC_DIR = PACKAGE_DIR / "static"
 UPLOAD_DIR = BASE_DIR / "uploads"
 RESULT_DIR = BASE_DIR / "results"
 HISTORY_PATH = RESULT_DIR / "history.json"

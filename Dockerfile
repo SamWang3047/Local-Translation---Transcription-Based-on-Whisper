@@ -16,7 +16,7 @@ COPY requirements-web.txt ./requirements-web.txt
 RUN pip install --no-cache-dir -r requirements-web.txt
 
 COPY app.py ./app.py
-COPY whisper_web ./whisper_web
+COPY src ./src
 
 EXPOSE 8010
 
