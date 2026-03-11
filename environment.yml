@@ -1,0 +1,9 @@
+name: local-whisper-studio
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - ffmpeg
+  - pip
+  - pip:
+      - -r requirements-web.txt

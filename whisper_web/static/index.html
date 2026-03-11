@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Whisper Studio</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body data-page="workspace">
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="/">Local Whisper Studio</a>
+        <nav class="nav-links">
+          <a class="nav-link active" href="/">Workspace</a>
+          <a class="nav-link" href="/history">History</a>
+        </nav>
+      </header>
+
+      <section class="hero hero-home">
+        <div class="hero-copy">
+          <h2 style="font-size: 40px;">Local Translation & Transcription</h2>
+          <p class="subtitle">Translate or transcribe locally with live progress and clean results.</p>
+          <div class="hero-chips">
+            <span>Live progress</span>
+            <span>TXT export</span>
+            <span>History</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel workspace-panel">
+        <form id="upload-form" class="upload-form">
+          <label class="file-picker" for="audio-file">
+            <span class="field-label">Audio file</span>
+            <input id="audio-file" name="file" type="file" accept="audio/*" required />
+            <span id="file-name" class="field-surface">Choose an audio file</span>
+          </label>
+
+          <label class="task-picker" for="task">
+            <span class="field-label">Mode</span>
+            <select id="task" name="task" class="field-surface">
+              <option value="translate">Translate to English</option>
+              <option value="transcribe">Transcribe original language</option>
+            </select>
+          </label>
+
+          <button id="submit-button" type="submit" class="primary-button">Start</button>
+        </form>
+
+        <div id="status-card" class="status-card hidden">
+          <div class="status-head">
+            <div>
+              <p class="status-label">Status</p>
+              <h2 id="status-text">Waiting</h2>
+            </div>
+            <span id="progress-text">0%</span>
+          </div>
+          <div class="progress-track">
+            <div id="progress-bar" class="progress-bar"></div>
+          </div>
+          <div class="progress-meta">
+            <p id="stage-text" class="stage-text">Preparing</p>
+            <p id="duration-text" class="stage-text">0.0s / 0.0s</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="result-panel" class="panel hidden">
+        <div class="result-grid">
+          <article class="metric-card">
+            <p>Language</p>
+            <strong id="language-value">-</strong>
+          </article>
+          <article class="metric-card">
+            <p>Confidence</p>
+            <strong id="confidence-value">-</strong>
+          </article>
+          <article class="metric-card">
+            <p>Mode</p>
+            <strong id="task-value">-</strong>
+          </article>
+          <article class="metric-card">
+            <p>Audio</p>
+            <strong id="audio-duration-value">-</strong>
+          </article>
+          <article class="metric-card">
+            <p>Done in</p>
+            <strong id="elapsed-value">-</strong>
+          </article>
+        </div>
+
+        <div class="result-actions">
+          <a id="download-link" class="download-link" href="#" target="_blank" rel="noopener noreferrer">
+            Download TXT
+          </a>
+          <a class="ghost-link" href="/history">Open History</a>
+        </div>
+
+        <article class="text-card">
+          <div class="text-card-head">
+            <h3>Text</h3>
+            <span id="segment-count">0 segments</span>
+          </div>
+          <pre id="result-text"></pre>
+        </article>
+
+        <article class="text-card">
+          <div class="text-card-head">
+            <h3>Timeline</h3>
+          </div>
+          <div id="segments-list" class="segments-list"></div>
+        </article>
+      </section>
+
+      <section id="error-panel" class="panel error-panel hidden">
+        <h3>Processing failed</h3>
+        <p id="error-text"></p>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+  </html>

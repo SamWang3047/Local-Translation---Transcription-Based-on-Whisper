@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Whisper Studio History</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body data-page="history">
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="/">Local Whisper Studio</a>
+        <nav class="nav-links">
+          <a class="nav-link" href="/">Workspace</a>
+          <a class="nav-link active" href="/history">History</a>
+        </nav>
+      </header>
+
+      <section class="hero hero-history">
+        <div class="hero-copy">
+          <h1>History</h1>
+        </div>
+      </section>
+
+      <section class="history-layout">
+        <aside class="panel history-sidebar">
+          <div class="panel-head">
+            <h2 style="font-size: 20px;">Files</h2>
+            <a class="ghost-link" href="/">New upload</a>
+          </div>
+          <div id="history-list" class="history-list"></div>
+        </aside>
+
+        <section class="panel history-detail">
+          <div id="detail-empty" class="history-empty">Select a job to preview its result.</div>
+          <div id="detail-content" class="hidden">
+            <div class="panel-head">
+              <div>
+                <h2 id="detail-title"></h2>
+                <p id="detail-meta" class="detail-meta"></p>
+              </div>
+              <a id="detail-download" class="download-link hidden" href="#" target="_blank" rel="noopener noreferrer">
+                Download TXT
+              </a>
+            </div>
+            <article class="text-card">
+              <div class="text-card-head">
+                <h3>Result text</h3>
+              </div>
+              <pre id="detail-text"></pre>
+            </article>
+            <article class="text-card">
+              <div class="text-card-head">
+                <h3>Timeline</h3>
+              </div>
+              <div id="detail-segments" class="segments-list"></div>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+  </html>

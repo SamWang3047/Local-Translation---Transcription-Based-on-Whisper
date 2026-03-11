@@ -1,0 +1,12 @@
+services:
+  whisper-web:
+    build: .
+    ports:
+      - "8010:8010"
+    environment:
+      WHISPER_MODEL_SIZE: turbo
+      WHISPER_DEVICE: cpu
+      WHISPER_COMPUTE_TYPE: int8
+    volumes:
+      - ./uploads:/app/uploads
+      - ./results:/app/results

@@ -1,0 +1,433 @@
+:root {
+  --bg: #f5efe4;
+  --bg-soft: #fbf7f1;
+  --panel: rgba(255, 252, 246, 0.86);
+  --panel-strong: rgba(255, 255, 255, 0.95);
+  --text: #2b221c;
+  --muted: #6d6154;
+  --line: rgba(72, 50, 28, 0.14);
+  --primary: #0f8d74;
+  --primary-deep: #0a6755;
+  --gold: #c49434;
+  --danger: #bb4d44;
+  --shadow: 0 22px 60px rgba(77, 56, 31, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(15, 141, 116, 0.16), transparent 28%),
+    radial-gradient(circle at top right, rgba(196, 148, 52, 0.17), transparent 24%),
+    linear-gradient(135deg, #f4ecdf 0%, #faf6f0 42%, #ece2d2 100%);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+a {
+  color: inherit;
+}
+
+.app-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 56px;
+}
+
+.topbar,
+.status-head,
+.result-actions,
+.text-card-head,
+.panel-head,
+.progress-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.topbar {
+  margin-bottom: 26px;
+}
+
+.brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-link,
+.ghost-link {
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.46);
+  color: var(--muted);
+}
+
+.nav-link.active {
+  color: white;
+  background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+  border-color: transparent;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 22px;
+  align-items: stretch;
+}
+
+.hero-history {
+  grid-template-columns: 1fr;
+}
+
+.hero-copy {
+  padding: 10px 2px 24px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--primary-deep);
+  font-weight: 700;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.3rem, 4.6vw, 4.4rem);
+  line-height: 0.98;
+  max-width: 760px;
+}
+
+.subtitle {
+  max-width: 720px;
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-family: "Segoe UI", sans-serif;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.hero-chips span {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid var(--line);
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.92rem;
+}
+
+.hero-card,
+.panel,
+.metric-card,
+.text-card,
+.history-item,
+.history-empty {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.hero-card {
+  border-radius: 28px;
+  padding: 24px;
+  align-self: end;
+}
+
+.hero-card p,
+.metric-card p,
+.status-label,
+.detail-meta {
+  margin: 0;
+  color: var(--muted);
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.93rem;
+}
+
+.hero-card strong,
+.metric-card strong {
+  display: block;
+  margin-top: 12px;
+  font-size: 1.4rem;
+  line-height: 1.25;
+}
+
+.panel {
+  margin-top: 18px;
+  border-radius: 30px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+}
+
+.upload-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) 260px 150px;
+  gap: 16px;
+  align-items: end;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.92rem;
+}
+
+.file-picker input {
+  display: none;
+}
+
+.field-surface,
+.primary-button,
+.download-link {
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  padding: 0 18px;
+  background: var(--panel-strong);
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.98rem;
+}
+
+.file-picker .field-surface {
+  cursor: pointer;
+}
+
+.task-picker select.field-surface {
+  width: 100%;
+  color: var(--text);
+}
+
+.primary-button,
+.download-link {
+  justify-content: center;
+  color: white;
+  background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.primary-button:disabled {
+  opacity: 0.72;
+  cursor: wait;
+}
+
+.status-card {
+  margin-top: 18px;
+}
+
+.status-head h2 {
+  margin: 8px 0 0;
+  font-size: 1.5rem;
+}
+
+.progress-track {
+  height: 16px;
+  margin-top: 18px;
+  border-radius: 999px;
+  background: rgba(72, 50, 28, 0.08);
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--gold), var(--primary));
+  transition: width 180ms ease;
+}
+
+.progress-meta {
+  margin-top: 12px;
+  align-items: flex-start;
+}
+
+.stage-text {
+  margin: 0;
+  color: var(--muted);
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.94rem;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.metric-card,
+.text-card {
+  border-radius: 22px;
+  padding: 18px;
+}
+
+.result-actions,
+.text-card,
+.history-layout,
+.history-list,
+.segments-list {
+  margin-top: 18px;
+}
+
+.text-card h3,
+.panel-head h2,
+.history-detail h2 {
+  margin: 0;
+}
+
+pre {
+  margin: 14px 0 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.7;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.97rem;
+}
+
+.segments-list {
+  display: grid;
+  gap: 12px;
+}
+
+.segment-item {
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(244, 236, 223, 0.72);
+  border: 1px solid var(--line);
+}
+
+.segment-item time {
+  color: var(--primary-deep);
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.segment-item p {
+  margin: 8px 0 0;
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.65;
+}
+
+.history-layout {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 18px;
+}
+
+.history-list {
+  display: grid;
+  gap: 12px;
+}
+
+.history-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border-radius: 22px;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.history-item strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 1rem;
+}
+
+.history-item p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.92rem;
+}
+
+.history-status {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.history-status.completed {
+  background: rgba(15, 141, 116, 0.12);
+  color: var(--primary-deep);
+}
+
+.history-status.processing,
+.history-status.queued {
+  background: rgba(196, 148, 52, 0.16);
+  color: #7d5a12;
+}
+
+.history-status.failed {
+  background: rgba(187, 77, 68, 0.12);
+  color: var(--danger);
+}
+
+.history-empty {
+  border-radius: 22px;
+  padding: 22px;
+  color: var(--muted);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.error-panel h3,
+.error-panel p {
+  color: var(--danger);
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 920px) {
+  .hero,
+  .upload-form,
+  .result-grid,
+  .history-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .app-shell {
+    width: min(100% - 20px, 1180px);
+    padding-top: 18px;
+  }
+
+  .topbar,
+  .result-actions,
+  .panel-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
