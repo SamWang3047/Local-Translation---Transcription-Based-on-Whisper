@@ -43,7 +43,7 @@ Notes:
 ```powershell
 conda env create -f environment.yml
 conda activate local-whisper-studio
-python -m uvicorn app:app --host 127.0.0.1 --port 8010 --reload
+python -m uvicorn app:app --app-dir . --host 127.0.0.1 --port 8010 --reload --reload-dir .
 ```
 
 Open:
@@ -60,15 +60,24 @@ python -m venv .venv
 .venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
 pip install -r requirements.txt
-python -m uvicorn app:app --host 127.0.0.1 --port 8010 --reload
+python -m uvicorn app:app --app-dir . --host 127.0.0.1 --port 8010 --reload --reload-dir .
 ```
 
 ### Option 3: One-click local script
 
+Recommended for this repository.
+
+The startup scripts now try Python environments in this order:
+
+1. Project `.venv`
+2. Local Conda environment named `whisper`
+3. Currently activated Conda environment
+4. System `python`
+
 PowerShell:
 
 ```powershell
-.\scripts\run_web.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\run_web.ps1
 ```
 
 Batch:
@@ -78,6 +87,15 @@ scripts\run_web.bat
 ```
 
 Default port is `8010`.
+
+If you already have a working Conda environment named `whisper`, the script should use it automatically.
+
+If you prefer to activate it yourself first:
+
+```powershell
+conda activate whisper
+powershell -ExecutionPolicy Bypass -File .\scripts\run_web.ps1
+```
 
 ### Option 4: Docker
 
