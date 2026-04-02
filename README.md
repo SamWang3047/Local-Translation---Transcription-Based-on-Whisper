@@ -6,6 +6,7 @@ It lets users upload an audio file, run transcription or translation locally, tr
 
 This repository is now documented for new users who do not already have your personal Whisper environment.
 
+![alt text](image.png)
 ## Features
 
 - Upload audio from the browser
